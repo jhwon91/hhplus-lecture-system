@@ -3,6 +3,7 @@ package com.hhplus.clean.domain.user;
 import jakarta.persistence.*;
 
 @Entity
+@Table(name = "lecture_user")
 public class UserEntity {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
