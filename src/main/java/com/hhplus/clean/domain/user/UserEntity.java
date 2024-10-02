@@ -1,18 +1,26 @@
 package com.hhplus.clean.domain.user;
 
+import com.hhplus.clean.domain.lectureEnroll.LectureEnrollEntity;
 import jakarta.persistence.*;
 
+import java.util.ArrayList;
+import java.util.List;
+
 @Entity
-@Table(name = "lecture_user")
+@Table(name = "users")
 public class UserEntity {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "user_id")
     private Long id;
+
+    @Column(name = "user_name", nullable = false)
     private String username;
 
-    public UserEntity() {
+    @OneToMany(mappedBy = "user")
+    private List<LectureEnrollEntity> lectureEnrolls = new ArrayList<>();
 
-    }
+    public UserEntity() {}
     public UserEntity(Long id, String username) {
         this.id = id;
         this.username = username;
@@ -32,5 +40,13 @@ public class UserEntity {
 
     public void setUsername(String username) {
         this.username = username;
+    }
+
+    public List<LectureEnrollEntity> getLectureEnrolls() {
+        return lectureEnrolls;
+    }
+
+    public void setLectureEnrolls(List<LectureEnrollEntity> lectureEnrolls) {
+        this.lectureEnrolls = lectureEnrolls;
     }
 }
