@@ -17,7 +17,7 @@ public class UserEntity {
     @Column(name = "user_name", nullable = false)
     private String username;
 
-    @OneToMany(mappedBy = "user")
+    @OneToMany(mappedBy = "userEntity")
     private List<LectureEnrollEntity> lectureEnrolls = new ArrayList<>();
 
     public UserEntity() {}

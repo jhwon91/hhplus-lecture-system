@@ -2,10 +2,12 @@ package com.hhplus.clean.infrastructure.persistence.lectureEnroll;
 
 import com.hhplus.clean.domain.lectureEnroll.LectureEnrollEntity;
 import com.hhplus.clean.domain.lectureEnroll.LectureEnrollRepository;
+import org.springframework.stereotype.Repository;
 
 import java.util.List;
 import java.util.Optional;
 
+@Repository
 public class LectureEnrollRepositoryImpl implements LectureEnrollRepository {
     private final JpaLectureEnrollRepository jpaLectureEnrollRepository;
 

@@ -29,7 +29,7 @@ public class LectureScheduleEntity {
     @Column(name = "current_count")
     private int currentCount;
 
-    @OneToMany(mappedBy = "lectureSchedule", cascade = CascadeType.ALL, orphanRemoval = true)
+    @OneToMany(mappedBy = "lectureScheduleEntity", cascade = CascadeType.ALL, orphanRemoval = true)
     private List<LectureEnrollEntity> lectureEnrolls = new ArrayList<>();
 
     public Long getId() {

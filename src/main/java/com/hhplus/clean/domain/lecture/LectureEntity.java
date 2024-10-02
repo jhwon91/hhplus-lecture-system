@@ -14,10 +14,10 @@ public class LectureEntity {
     @Column(name = "lecture_id")
     private Long id;
 
-    @Column(name = "lecture_id", nullable = false)
+    @Column(name = "lecture_name", nullable = false)
     private String lectureName;
 
-    @OneToMany(mappedBy = "lecture")
+    @OneToMany(mappedBy = "lectureEntity")
     private List<LectureScheduleEntity> lectureSchedules = new ArrayList<>();
 
     public LectureEntity() {}
