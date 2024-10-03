@@ -13,11 +13,11 @@ public record LectureScheduleInfo(
         int capacity,
         int currentCount
 ) {
-    // LectureScheduleEntity -> Info
+    // Entity -> Info
     public static LectureScheduleInfo from(LectureScheduleEntity entity) {
         return LectureScheduleInfo.builder()
                 .id(entity.getId())
-                .lecture(entity.getLectureEntity())  // LectureEntity 객체 자체를 포함
+                .lecture(entity.getLectureEntity())
                 .regDate(entity.getRegDate())
                 .capacity(entity.getCapacity())
                 .currentCount(entity.getCurrentCount())

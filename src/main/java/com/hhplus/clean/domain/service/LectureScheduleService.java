@@ -5,6 +5,7 @@ import com.hhplus.clean.domain.entity.LectureScheduleEntity;
 import com.hhplus.clean.domain.dto.LectureScheduleCommand;
 import com.hhplus.clean.domain.dto.LectureScheduleInfo;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.time.LocalDate;
 import java.util.List;
@@ -24,7 +25,6 @@ public class LectureScheduleService {
 
         return LectureScheduleInfo.from(lectureScheduleEntity);
     }
-
 
     public List<LectureScheduleInfo> getAvailableLectureSchedules(LocalDate date) {
         List<LectureScheduleEntity> schedules = lectureScheduleRepository.findByRegDate(date);
@@ -49,6 +49,7 @@ public class LectureScheduleService {
         return LectureScheduleInfo.from(schedule) ;
     }
 
+    @Transactional
     public LectureScheduleInfo saveLectureSchedule(LectureScheduleCommand lectureSchedule) {
         return LectureScheduleInfo.from(lectureScheduleRepository.save(lectureSchedule.toEntity()));
     }

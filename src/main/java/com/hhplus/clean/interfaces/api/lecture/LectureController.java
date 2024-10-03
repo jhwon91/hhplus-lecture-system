@@ -1,6 +1,7 @@
 package com.hhplus.clean.interfaces.api.lecture;
 
 import com.hhplus.clean.application.LectureFacade;
+import com.hhplus.clean.interfaces.api.dto.LectureEnrollResponseDTO;
 import com.hhplus.clean.interfaces.api.dto.LectureScheduleResponseDTO;
 import com.hhplus.clean.interfaces.api.dto.UserRequestDTO;
 import org.slf4j.Logger;
@@ -29,14 +30,15 @@ public class LectureController {
         return lectureFacade.getAvailableLectureSchedules(date).stream()
                 .map(LectureScheduleResponseDTO::from)
                 .collect(Collectors.toList());
-
     }
 
     // 특강 신청 API
     @PostMapping("/{lectureId}/register")
-    public String registerLecture(@PathVariable Long lectureId,
-                                  @RequestBody UserRequestDTO requestDTO) {
-        lectureFacade.enrollLecture(lectureId, requestDTO.toCommand() );
-        return "특강 신청이 완료되었습니다.";
+    public LectureEnrollResponseDTO registerLecture(@PathVariable Long lectureId,
+                                                    @RequestBody UserRequestDTO requestDTO) {
+        return LectureEnrollResponseDTO.from(
+
+                lectureFacade.enrollLecture(lectureId, requestDTO.toCommand())
+        );
     }
 }

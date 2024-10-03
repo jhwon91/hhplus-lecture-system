@@ -1,5 +1,6 @@
 package com.hhplus.clean.domain.entity;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 
 import java.util.ArrayList;
@@ -16,6 +17,7 @@ public class LectureEntity {
     @Column(name = "lecture_name", nullable = false)
     private String lectureName;
 
+    @JsonIgnore // 직렬화 시 이 필드를 무시함
     @OneToMany(mappedBy = "lectureEntity")
     private List<LectureScheduleEntity> lectureSchedules = new ArrayList<>();
 

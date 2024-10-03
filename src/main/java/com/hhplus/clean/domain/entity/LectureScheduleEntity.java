@@ -14,7 +14,7 @@ public class LectureScheduleEntity {
     @Column(name = "lecture_schedule_id")
     private Long id;
 
-    @ManyToOne(fetch = FetchType.LAZY)
+    @ManyToOne(fetch = FetchType.EAGER)
     @JoinColumn(name = "lecture_id", nullable = false)
     private LectureEntity lectureEntity;
 
@@ -27,7 +27,7 @@ public class LectureScheduleEntity {
     @Column(name = "current_count")
     private int currentCount;
 
-    @OneToMany(mappedBy = "lectureScheduleEntity", cascade = CascadeType.ALL, orphanRemoval = true)
+    @OneToMany(mappedBy = "lectureScheduleEntity")
     private List<LectureEnrollEntity> lectureEnrolls = new ArrayList<>();
 
     public LectureScheduleEntity() {}
