@@ -1,11 +1,9 @@
-package com.hhplus.clean.domain;
+package com.hhplus.clean.domain.service;
 
 import com.hhplus.clean.domain.dto.UserCommand;
 import com.hhplus.clean.domain.dto.UserInfo;
 import com.hhplus.clean.domain.entity.UserEntity;
 import com.hhplus.clean.domain.Repository.UserRepository;
-import com.hhplus.clean.domain.service.UserService;
-import org.aspectj.bridge.ICommand;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.mockito.InjectMocks;

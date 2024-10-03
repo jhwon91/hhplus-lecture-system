@@ -1,4 +1,4 @@
-package com.hhplus.clean.domain;
+package com.hhplus.clean.domain.service;
 
 import com.hhplus.clean.domain.Repository.LectureEnrollRepository;
 import com.hhplus.clean.domain.dto.LectureEnrollCommand;
@@ -9,7 +9,6 @@ import com.hhplus.clean.domain.entity.LectureEnrollEntity;
 import com.hhplus.clean.domain.entity.LectureEntity;
 import com.hhplus.clean.domain.entity.LectureScheduleEntity;
 import com.hhplus.clean.domain.entity.UserEntity;
-import com.hhplus.clean.domain.service.LectureEnrollService;
 import org.junit.jupiter.api.BeforeEach;
 import org.mockito.InjectMocks;
 import org.mockito.Mock;
