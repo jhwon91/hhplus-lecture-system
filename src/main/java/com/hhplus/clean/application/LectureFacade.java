@@ -33,7 +33,7 @@ public class LectureFacade {
     public void enrollLecture(Long lectureId, UserCommand userCommand) {
 
         // 사용자 확인
-        UserCommand user = UserCommand.form(userService.getUser(userCommand.getId())) ;
+        UserCommand user = UserCommand.from(userService.getUser(userCommand.id()));
 
         // 특강 스케줄 확인
         LectureSchedule lectureSchedule = lectureScheduleService.getLectureScheduleById(lectureId);

@@ -1,38 +1,18 @@
 package com.hhplus.clean.domain.user;
 
 import com.hhplus.clean.infrastructure.entity.UserEntity;
+import lombok.Builder;
 
-public class UserInfo {
-    private Long id;
-    private String userName;
-
-    public UserInfo() {}
-
-    public UserInfo(Long id, String userName) {
-        this.id = id;
-        this.userName = userName;
-    }
-
-    public Long getId() {
-        return id;
-    }
-
-    public void setId(Long id) {
-        this.id = id;
-    }
-
-    public String getUserName() {
-        return userName;
-    }
-
-    public void setUserName(String userName) {
-        this.userName = userName;
-    }
-
-    public static UserInfo from (UserEntity entity) {
-        return new UserInfo(
-                entity.getId(),
-                entity.getUsername()
-        );
+@Builder
+public record UserInfo (
+        Long id,
+        String userName
+) {
+    // Entity -> Info를 생성하는 정적 메소드
+    public static UserInfo from(UserEntity entity) {
+        return UserInfo.builder()
+                .id(entity.getId())
+                .userName(entity.getUsername())
+                .build();
     }
 }
