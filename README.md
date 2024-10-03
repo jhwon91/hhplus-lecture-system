@@ -51,8 +51,8 @@
 
 ### ️📌 **`Default`**
 
-- [ ] 아키텍처 준수를 위한 애플리케이션 패키지 설계
-- [ ] 특강 도메인 테이블 설계 및 목록/신청 등 기본 기능 구현
+- [x] 아키텍처 준수를 위한 애플리케이션 패키지 설계
+- [x] 특강 도메인 테이블 설계 및 목록/신청 등 기본 기능 구현
 - [ ] 각 기능에 대한 **단위 테스트** 작성
 
 ### 📌 **`STEP 3`**
@@ -71,11 +71,11 @@
     <b> 📝 API 명세서 </b>
   </summary>
 
-| 기능              | Method | API URL                       |
-|-----------------|-------|-------------------------------|
-| ⭐️ 특강 신청        | `POST` | /lecture/{lectureId}/register |
-| 날짜별 특강 목록       | `GET` | /lecture?date={date}          |
-| ⭐️ 특강 신청 여부 조회  | `GET` | /user/{userId}/lectures       |
+| 기능             | Method | API URL                       |
+|----------------|-------|-------------------------------|
+| ⭐️ 특강 신청       | `POST` | /lecture/{lectureId}/register |
+| 날짜별 특강 목록      | `GET` | /lecture?date={date}          |
+| ⭐️ 특강 신청 완료 조회 | `GET` | /lecture/{userId}/lectures       |
 
 
 </details>
