@@ -1,6 +1,5 @@
-package com.hhplus.clean.domain.lecture;
+package com.hhplus.clean.infrastructure.entity;
 
-import com.hhplus.clean.domain.lectureSchedule.LectureScheduleEntity;
 import jakarta.persistence.*;
 
 import java.util.ArrayList;

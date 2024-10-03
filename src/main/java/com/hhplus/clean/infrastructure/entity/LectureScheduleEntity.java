@@ -1,7 +1,5 @@
-package com.hhplus.clean.domain.lectureSchedule;
+package com.hhplus.clean.infrastructure.entity;
 
-import com.hhplus.clean.domain.lecture.LectureEntity;
-import com.hhplus.clean.domain.lectureEnroll.LectureEnrollEntity;
 import jakarta.persistence.*;
 
 import java.time.LocalDate;
@@ -31,6 +29,15 @@ public class LectureScheduleEntity {
 
     @OneToMany(mappedBy = "lectureScheduleEntity", cascade = CascadeType.ALL, orphanRemoval = true)
     private List<LectureEnrollEntity> lectureEnrolls = new ArrayList<>();
+
+    public LectureScheduleEntity() {}
+    public LectureScheduleEntity(Long id, LectureEntity lectureEntity, LocalDate regDate, int capacity, int currentCount) {
+        this.id = id;
+        this.lectureEntity = lectureEntity;
+        this.regDate = regDate;
+        this.capacity = capacity;
+        this.currentCount = currentCount;
+    }
 
     public Long getId() {
         return id;

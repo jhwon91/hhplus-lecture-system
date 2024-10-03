@@ -1,6 +1,6 @@
 package com.hhplus.clean.infrastructure.persistence.lectureSchedule;
 
-import com.hhplus.clean.domain.lectureSchedule.LectureScheduleEntity;
+import com.hhplus.clean.infrastructure.entity.LectureScheduleEntity;
 import com.hhplus.clean.domain.lectureSchedule.LectureScheduleRepository;
 import org.springframework.stereotype.Repository;
 

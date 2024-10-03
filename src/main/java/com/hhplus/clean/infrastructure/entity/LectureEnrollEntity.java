@@ -1,7 +1,5 @@
-package com.hhplus.clean.domain.lectureEnroll;
+package com.hhplus.clean.infrastructure.entity;
 
-import com.hhplus.clean.domain.lectureSchedule.LectureScheduleEntity;
-import com.hhplus.clean.domain.user.UserEntity;
 import jakarta.persistence.*;
 
 import java.time.LocalDateTime;

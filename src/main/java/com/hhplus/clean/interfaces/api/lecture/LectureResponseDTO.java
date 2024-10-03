@@ -25,7 +25,7 @@ public class LectureResponseDTO {
     public static LectureResponseDTO from(LectureSchedule lectureSchedule) {
         return new LectureResponseDTO(
                 lectureSchedule.getId(),
-                lectureSchedule.getLectureName(),
+                lectureSchedule.getLectureEntity().getLectureName(),
                 lectureSchedule.getRegDate(),
                 lectureSchedule.getCapacity(),
                 lectureSchedule.getCurrentCount()

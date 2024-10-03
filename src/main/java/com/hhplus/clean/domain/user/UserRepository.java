@@ -1,5 +1,7 @@
 package com.hhplus.clean.domain.user;
 
+import com.hhplus.clean.infrastructure.entity.UserEntity;
+
 import java.util.List;
 import java.util.Optional;
 

@@ -1,18 +1,15 @@
 package com.hhplus.clean.interfaces.api.user;
-
-import com.hhplus.clean.domain.user.UserEntity;
+import com.hhplus.clean.domain.user.UserInfo;
 
 public class UserResponseDTO {
     private Long id;
     private String username;
 
-    // 정적 팩토리 메서드로 UserEntity를 UserResponseDTO로 변환
-    public static UserResponseDTO from(UserEntity userEntity) {
-        UserResponseDTO response = new UserResponseDTO();
-        response.setId(userEntity.getId());
-        response.setUsername(userEntity.getUsername());
-        return response;
+    public UserResponseDTO() {}
 
+    public UserResponseDTO(Long id, String username) {
+        this.id = id;
+        this.username = username;
     }
 
     public Long getId() {
@@ -27,5 +24,13 @@ public class UserResponseDTO {
 
     public void setUsername(String username) {
         this.username = username;
+    }
+
+    // UserInfo-> UserResponseDTO
+    public static UserResponseDTO from(UserInfo user) {
+        return new UserResponseDTO(
+                user.getId(),
+                user.getUserName()
+        );
     }
 }

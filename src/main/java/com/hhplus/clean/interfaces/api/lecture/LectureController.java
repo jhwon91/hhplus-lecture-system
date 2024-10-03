@@ -2,6 +2,7 @@ package com.hhplus.clean.interfaces.api.lecture;
 
 import com.hhplus.clean.application.LectureFacade;
 import com.hhplus.clean.domain.lectureSchedule.LectureSchedule;
+import com.hhplus.clean.interfaces.api.user.UserRequestDTO;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.web.bind.annotation.*;
@@ -34,5 +35,13 @@ public class LectureController {
                 .collect(Collectors.toList());
 
         return responseDTO;
+    }
+
+    // 특강 신청 API
+    @PostMapping("/{lectureId}/register")
+    public String registerLecture(@PathVariable Long lectureId,
+                                  @RequestBody UserRequestDTO requestDTO) {
+        lectureFacade.enrollLecture(lectureId, requestDTO.toCommand() );
+        return "특강 신청이 완료되었습니다.";
     }
 }

@@ -2,7 +2,7 @@ package com.hhplus.clean.interfaces.api.user;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.hhplus.clean.application.UserFacade;
-import com.hhplus.clean.domain.user.UserEntity;
+import com.hhplus.clean.infrastructure.entity.UserEntity;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.mockito.InjectMocks;

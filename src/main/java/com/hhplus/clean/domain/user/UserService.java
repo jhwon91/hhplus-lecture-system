@@ -1,8 +1,10 @@
 package com.hhplus.clean.domain.user;
 
+import com.hhplus.clean.infrastructure.entity.UserEntity;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.stream.Collectors;
 
 @Service
 public class UserService {
@@ -12,16 +14,21 @@ public class UserService {
         this.userRepository = userRepository;
     }
 
-    public UserEntity saveUser(UserEntity user) {
-        return userRepository.save(user);
+    public UserInfo saveUser(UserCommand user) {
+        return  UserInfo.from(userRepository.save(user.toEntity()));
     }
 
-    public UserEntity getUser(long userId) {
-        return userRepository.findById(userId)
-                .orElseThrow(() -> new IllegalArgumentException("해당 유저를 찾을 수 없습니다."));
+    public UserInfo getUser(long userId) {
+        return UserInfo.from(
+                userRepository.findById(userId)
+                .orElseThrow(() -> new IllegalArgumentException("해당 유저를 찾을 수 없습니다."))
+        );
     }
 
-    public List<UserEntity> getAllUsers() {
-        return userRepository.findAll();
+    public List<UserInfo> getAllUsers() {
+        List<UserEntity> user = userRepository.findAll();
+        return userRepository.findAll().stream()
+                .map(UserInfo::from)
+                .collect(Collectors.toList());
     }
 }

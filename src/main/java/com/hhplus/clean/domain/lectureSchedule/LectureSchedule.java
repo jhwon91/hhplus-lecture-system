@@ -1,10 +1,14 @@
 package com.hhplus.clean.domain.lectureSchedule;
 
+import com.hhplus.clean.infrastructure.entity.LectureEntity;
+import com.hhplus.clean.infrastructure.entity.LectureScheduleEntity;
+import com.hhplus.clean.infrastructure.entity.UserEntity;
+
 import java.time.LocalDate;
 
 public class LectureSchedule {
     private Long id;
-    private String lectureName;
+    private LectureEntity lectureEntity;
     private LocalDate regDate;
     private int capacity;
     private int currentCount;
@@ -13,9 +17,9 @@ public class LectureSchedule {
     public LectureSchedule() {}
 
     // 생성자
-    public LectureSchedule(Long id, String lectureName, LocalDate regDate, int capacity, int currentCount) {
+    public LectureSchedule(Long id, LectureEntity lectureEntity, LocalDate regDate, int capacity, int currentCount) {
         this.id = id;
-        this.lectureName = lectureName;
+        this.lectureEntity = lectureEntity;
         this.regDate = regDate;
         this.capacity = capacity;
         this.currentCount = currentCount;
@@ -28,14 +32,6 @@ public class LectureSchedule {
 
     public void setId(Long id) {
         this.id = id;
-    }
-
-    public String getLectureName() {
-        return lectureName;
-    }
-
-    public void setLectureName(String lectureName) {
-        this.lectureName = lectureName;
     }
 
     public LocalDate getRegDate() {
@@ -62,14 +58,33 @@ public class LectureSchedule {
         this.currentCount = currentCount;
     }
 
-    // LectureScheduleEntity에서 LectureSchedule로 변환하는 메소드
+    public LectureEntity getLectureEntity() {
+        return lectureEntity;
+    }
+
+    public void setLectureEntity(LectureEntity lectureEntity) {
+        this.lectureEntity = lectureEntity;
+    }
+
     public static LectureSchedule from(LectureScheduleEntity entity) {
         return new LectureSchedule(
                 entity.getId(),
-                entity.getLectureEntity().getLectureName(),
+                entity.getLectureEntity(),
                 entity.getRegDate(),
                 entity.getCapacity(),
                 entity.getLectureEnrolls().size()
         );
     }
+
+    public LectureScheduleEntity toEntity() {
+        return new LectureScheduleEntity(
+          this.id,
+          this.lectureEntity,
+          this.regDate,
+          this.capacity,
+          this.currentCount
+        );
+    }
+
+
 }
