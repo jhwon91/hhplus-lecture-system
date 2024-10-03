@@ -79,7 +79,7 @@
 
 </details>
 
-# STEP 1 강의 신청 시스템 ERD
+# STEP 3 강의 신청 시스템 ERD
 
 ## ERD
 ![erd.png](images/erd.png)
