@@ -71,11 +71,11 @@
     <b> 📝 API 명세서 </b>
   </summary>
 
-| 기능              | Method | API URL                       |
-|-----------------|-------|-------------------------------|
-| ⭐️ 특강 신청        | `POST` | /lecture/{lectureId}/register |
-| 날짜별 특강 목록       | `GET` | /lecture?date={date}          |
-| ⭐️ 특강 신청 여부 조회  | `GET` | /user/{userId}/lectures       |
+| 기능             | Method | API URL                       |
+|----------------|-------|-------------------------------|
+| ⭐️ 특강 신청       | `POST` | /lecture/{lectureId}/register |
+| 날짜별 특강 목록      | `GET` | /lecture?date={date}          |
+| ⭐️ 특강 신청 완료 조회 | `GET` | /lecture/{userId}/lectures       |
 
 
 </details>

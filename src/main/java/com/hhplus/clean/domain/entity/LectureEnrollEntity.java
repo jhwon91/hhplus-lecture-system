@@ -12,11 +12,11 @@ public class LectureEnrollEntity {
     @Column(name = "lecture_enroll_id")
     private Long id;
 
-    @ManyToOne(fetch = FetchType.LAZY)
+    @ManyToOne(fetch = FetchType.EAGER)
     @JoinColumn(name = "user_id", nullable = false)
     private UserEntity userEntity;
 
-    @ManyToOne(fetch = FetchType.LAZY)
+    @ManyToOne(fetch = FetchType.EAGER)
     @JoinColumn(name = "lecture_schedule_id", nullable = false)
     private LectureScheduleEntity lectureScheduleEntity;
 

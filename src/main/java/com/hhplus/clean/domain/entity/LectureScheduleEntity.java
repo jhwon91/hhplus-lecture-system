@@ -1,5 +1,6 @@
 package com.hhplus.clean.domain.entity;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 
 import java.time.LocalDate;
@@ -27,6 +28,7 @@ public class LectureScheduleEntity {
     @Column(name = "current_count")
     private int currentCount;
 
+    @JsonIgnore
     @OneToMany(mappedBy = "lectureScheduleEntity")
     private List<LectureEnrollEntity> lectureEnrolls = new ArrayList<>();
 

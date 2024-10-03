@@ -1,4 +1,4 @@
-package com.hhplus.clean.interfaces.api.lecture;
+package com.hhplus.clean.interfaces.api.controller;
 
 import com.hhplus.clean.application.LectureFacade;
 import com.hhplus.clean.interfaces.api.dto.LectureEnrollResponseDTO;
@@ -37,8 +37,15 @@ public class LectureController {
     public LectureEnrollResponseDTO registerLecture(@PathVariable Long lectureId,
                                                     @RequestBody UserRequestDTO requestDTO) {
         return LectureEnrollResponseDTO.from(
-
                 lectureFacade.enrollLecture(lectureId, requestDTO.toCommand())
         );
+    }
+
+    // 사용자가 신청한 특강 목록 조회 API
+    @GetMapping("/{userId}/lectures")
+    public List<LectureEnrollResponseDTO> getUserLectures(@PathVariable Long userId) {
+        return lectureFacade.getUserLectures(userId).stream()
+                .map(LectureEnrollResponseDTO::from)
+                .collect(Collectors.toList());
     }
 }

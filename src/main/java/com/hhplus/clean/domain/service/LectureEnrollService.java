@@ -1,15 +1,15 @@
 package com.hhplus.clean.domain.service;
 
 import com.hhplus.clean.domain.Repository.LectureEnrollRepository;
-import com.hhplus.clean.domain.dto.LectureEnrollCommand;
-import com.hhplus.clean.domain.dto.LectureEnrollInfo;
-import com.hhplus.clean.domain.dto.LectureScheduleCommand;
-import com.hhplus.clean.domain.dto.UserCommand;
+import com.hhplus.clean.domain.dto.*;
 import com.hhplus.clean.domain.entity.LectureEnrollEntity;
+import com.hhplus.clean.domain.entity.LectureScheduleEntity;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import java.time.LocalDateTime;
+import java.util.List;
+import java.util.stream.Collectors;
 
 @Service
 public class LectureEnrollService {
@@ -39,6 +39,13 @@ public class LectureEnrollService {
             throw new IllegalArgumentException("이미 해당 특강에 신청하셨습니다.");
         }
     }
+
+    public List<LectureEnrollInfo> findByUser(UserCommand userCommand) {
+        return lectureEnrollRepository.findByUserEntity(userCommand.toEntity()).stream()
+                .map(LectureEnrollInfo::from)
+                .collect(Collectors.toList());
+    }
+
 
     public LectureEnrollInfo findById(LectureEnrollCommand lectureEnrollCommand) {
         return LectureEnrollInfo.from(

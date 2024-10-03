@@ -1,5 +1,6 @@
 package com.hhplus.clean.domain.entity;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 
 import java.util.ArrayList;
@@ -16,6 +17,7 @@ public class UserEntity {
     @Column(name = "user_name", nullable = false)
     private String username;
 
+    @JsonIgnore
     @OneToMany(mappedBy = "userEntity")
     private List<LectureEnrollEntity> lectureEnrolls = new ArrayList<>();
 
