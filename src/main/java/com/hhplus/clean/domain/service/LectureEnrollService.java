@@ -1,8 +1,9 @@
-package com.hhplus.clean.domain.lectureEnroll;
+package com.hhplus.clean.domain.service;
 
-import com.hhplus.clean.domain.lectureSchedule.LectureScheduleCommand;
-import com.hhplus.clean.domain.user.UserCommand;
-import com.hhplus.clean.infrastructure.entity.LectureEnrollEntity;
+import com.hhplus.clean.domain.Repository.LectureEnrollRepository;
+import com.hhplus.clean.domain.dto.LectureScheduleCommand;
+import com.hhplus.clean.domain.dto.UserCommand;
+import com.hhplus.clean.domain.entity.LectureEnrollEntity;
 import org.springframework.stereotype.Service;
 
 import java.time.LocalDateTime;

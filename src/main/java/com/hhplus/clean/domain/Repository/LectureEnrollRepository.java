@@ -1,8 +1,8 @@
-package com.hhplus.clean.domain.lectureEnroll;
+package com.hhplus.clean.domain.Repository;
 
-import com.hhplus.clean.infrastructure.entity.LectureEnrollEntity;
-import com.hhplus.clean.infrastructure.entity.LectureScheduleEntity;
-import com.hhplus.clean.infrastructure.entity.UserEntity;
+import com.hhplus.clean.domain.entity.LectureEnrollEntity;
+import com.hhplus.clean.domain.entity.LectureScheduleEntity;
+import com.hhplus.clean.domain.entity.UserEntity;
 
 import java.util.List;
 import java.util.Optional;

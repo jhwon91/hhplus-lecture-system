@@ -1,6 +1,9 @@
-package com.hhplus.clean.domain.user;
+package com.hhplus.clean.domain.service;
 
-import com.hhplus.clean.infrastructure.entity.UserEntity;
+import com.hhplus.clean.domain.Repository.UserRepository;
+import com.hhplus.clean.domain.entity.UserEntity;
+import com.hhplus.clean.domain.dto.UserCommand;
+import com.hhplus.clean.domain.dto.UserInfo;
 import org.springframework.stereotype.Service;
 
 import java.util.List;

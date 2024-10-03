@@ -1,6 +1,6 @@
-package com.hhplus.clean.domain.lecture;
+package com.hhplus.clean.domain.Repository;
 
-import com.hhplus.clean.infrastructure.entity.LectureEntity;
+import com.hhplus.clean.domain.entity.LectureEntity;
 
 import java.util.List;
 import java.util.Optional;

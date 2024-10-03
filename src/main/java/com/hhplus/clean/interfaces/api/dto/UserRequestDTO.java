@@ -1,6 +1,6 @@
-package com.hhplus.clean.interfaces.api.user;
+package com.hhplus.clean.interfaces.api.dto;
 
-import com.hhplus.clean.domain.user.UserCommand;
+import com.hhplus.clean.domain.dto.UserCommand;
 import lombok.Builder;
 
 

@@ -1,6 +1,6 @@
-package com.hhplus.clean.domain.lectureSchedule;
-import com.hhplus.clean.infrastructure.entity.LectureEntity;
-import com.hhplus.clean.infrastructure.entity.LectureScheduleEntity;
+package com.hhplus.clean.domain.dto;
+import com.hhplus.clean.domain.entity.LectureEntity;
+import com.hhplus.clean.domain.entity.LectureScheduleEntity;
 import lombok.Builder;
 
 import java.time.LocalDate;

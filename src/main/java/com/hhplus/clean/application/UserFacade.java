@@ -1,8 +1,8 @@
 package com.hhplus.clean.application;
 
-import com.hhplus.clean.domain.user.UserCommand;
-import com.hhplus.clean.domain.user.UserInfo;
-import com.hhplus.clean.domain.user.UserService;
+import com.hhplus.clean.domain.dto.UserCommand;
+import com.hhplus.clean.domain.dto.UserInfo;
+import com.hhplus.clean.domain.service.UserService;
 import org.springframework.stereotype.Service;
 
 import java.util.List;

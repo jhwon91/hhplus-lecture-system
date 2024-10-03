@@ -1,6 +1,6 @@
-package com.hhplus.clean.domain.lectureSchedule;
+package com.hhplus.clean.domain.Repository;
 
-import com.hhplus.clean.infrastructure.entity.LectureScheduleEntity;
+import com.hhplus.clean.domain.entity.LectureScheduleEntity;
 
 import java.time.LocalDate;
 import java.util.List;

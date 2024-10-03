@@ -1,7 +1,7 @@
 package com.hhplus.clean.infrastructure.persistence.lecture;
 
-import com.hhplus.clean.infrastructure.entity.LectureEntity;
-import com.hhplus.clean.domain.lecture.LectureRepository;
+import com.hhplus.clean.domain.entity.LectureEntity;
+import com.hhplus.clean.domain.Repository.LectureRepository;
 import org.springframework.stereotype.Repository;
 
 import java.util.List;

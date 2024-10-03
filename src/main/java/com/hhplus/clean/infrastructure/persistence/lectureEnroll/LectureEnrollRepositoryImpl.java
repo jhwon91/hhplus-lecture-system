@@ -1,9 +1,9 @@
 package com.hhplus.clean.infrastructure.persistence.lectureEnroll;
 
-import com.hhplus.clean.infrastructure.entity.LectureEnrollEntity;
-import com.hhplus.clean.domain.lectureEnroll.LectureEnrollRepository;
-import com.hhplus.clean.infrastructure.entity.LectureScheduleEntity;
-import com.hhplus.clean.infrastructure.entity.UserEntity;
+import com.hhplus.clean.domain.entity.LectureEnrollEntity;
+import com.hhplus.clean.domain.Repository.LectureEnrollRepository;
+import com.hhplus.clean.domain.entity.LectureScheduleEntity;
+import com.hhplus.clean.domain.entity.UserEntity;
 import org.springframework.stereotype.Repository;
 
 import java.util.List;

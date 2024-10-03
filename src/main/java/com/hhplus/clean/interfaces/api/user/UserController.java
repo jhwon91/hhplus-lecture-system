@@ -1,6 +1,8 @@
 package com.hhplus.clean.interfaces.api.user;
 
 import com.hhplus.clean.application.UserFacade;
+import com.hhplus.clean.interfaces.api.dto.UserRequestDTO;
+import com.hhplus.clean.interfaces.api.dto.UserResponseDTO;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;

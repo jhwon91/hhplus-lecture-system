@@ -1,5 +1,5 @@
-package com.hhplus.clean.interfaces.api.user;
-import com.hhplus.clean.domain.user.UserInfo;
+package com.hhplus.clean.interfaces.api.dto;
+import com.hhplus.clean.domain.dto.UserInfo;
 import lombok.Builder;
 
 @Builder

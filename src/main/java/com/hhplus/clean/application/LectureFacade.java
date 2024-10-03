@@ -1,11 +1,11 @@
 package com.hhplus.clean.application;
 
-import com.hhplus.clean.domain.lectureEnroll.LectureEnrollService;
-import com.hhplus.clean.domain.lectureSchedule.LectureScheduleCommand;
-import com.hhplus.clean.domain.lectureSchedule.LectureScheduleInfo;
-import com.hhplus.clean.domain.lectureSchedule.LectureScheduleService;
-import com.hhplus.clean.domain.user.UserCommand;
-import com.hhplus.clean.domain.user.UserService;
+import com.hhplus.clean.domain.service.LectureEnrollService;
+import com.hhplus.clean.domain.dto.LectureScheduleCommand;
+import com.hhplus.clean.domain.dto.LectureScheduleInfo;
+import com.hhplus.clean.domain.service.LectureScheduleService;
+import com.hhplus.clean.domain.dto.UserCommand;
+import com.hhplus.clean.domain.service.UserService;
 
 import jakarta.transaction.Transactional;
 import org.springframework.stereotype.Service;

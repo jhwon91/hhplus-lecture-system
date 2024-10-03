@@ -1,9 +1,8 @@
 package com.hhplus.clean.interfaces.api.lecture;
 
 import com.hhplus.clean.application.LectureFacade;
-import com.hhplus.clean.interfaces.api.dto.LectureScheduleRequestDTO;
 import com.hhplus.clean.interfaces.api.dto.LectureScheduleResponseDTO;
-import com.hhplus.clean.interfaces.api.user.UserRequestDTO;
+import com.hhplus.clean.interfaces.api.dto.UserRequestDTO;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.web.bind.annotation.*;

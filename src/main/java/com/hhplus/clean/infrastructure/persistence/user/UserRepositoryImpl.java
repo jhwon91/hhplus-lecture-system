@@ -1,6 +1,6 @@
 package com.hhplus.clean.infrastructure.persistence.user;
-import com.hhplus.clean.infrastructure.entity.UserEntity;
-import com.hhplus.clean.domain.user.UserRepository;
+import com.hhplus.clean.domain.entity.UserEntity;
+import com.hhplus.clean.domain.Repository.UserRepository;
 import org.springframework.stereotype.Repository;
 
 import java.util.List;

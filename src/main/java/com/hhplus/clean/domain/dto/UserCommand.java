@@ -1,6 +1,6 @@
-package com.hhplus.clean.domain.user;
+package com.hhplus.clean.domain.dto;
 
-import com.hhplus.clean.infrastructure.entity.UserEntity;
+import com.hhplus.clean.domain.entity.UserEntity;
 import lombok.Builder;
 
 @Builder

@@ -1,8 +1,8 @@
 package com.hhplus.clean.domain;
 
-import com.hhplus.clean.infrastructure.entity.UserEntity;
-import com.hhplus.clean.domain.user.UserRepository;
-import com.hhplus.clean.domain.user.UserService;
+import com.hhplus.clean.domain.entity.UserEntity;
+import com.hhplus.clean.domain.Repository.UserRepository;
+import com.hhplus.clean.domain.service.UserService;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.mockito.InjectMocks;

@@ -1,4 +1,4 @@
-package com.hhplus.clean.infrastructure.entity;
+package com.hhplus.clean.domain.entity;
 
 import jakarta.persistence.*;
 
