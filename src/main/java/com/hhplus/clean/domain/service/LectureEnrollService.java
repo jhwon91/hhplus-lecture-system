@@ -50,7 +50,7 @@ public class LectureEnrollService {
     public LectureEnrollInfo findById(LectureEnrollCommand lectureEnrollCommand) {
         return LectureEnrollInfo.from(
                 lectureEnrollRepository.findById(lectureEnrollCommand.id())
-                    .orElseThrow(() -> new IllegalArgumentException("등록을 찾을 수 없습니다.."))
+                    .orElseThrow(() -> new IllegalArgumentException("등록을 찾을 수 없습니다."))
         );
     }
 
