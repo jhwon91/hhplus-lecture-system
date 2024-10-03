@@ -1,7 +1,8 @@
 package com.hhplus.clean.interfaces.api.lecture;
 
 import com.hhplus.clean.application.LectureFacade;
-import com.hhplus.clean.domain.lectureSchedule.LectureSchedule;
+import com.hhplus.clean.interfaces.api.dto.LectureScheduleRequestDTO;
+import com.hhplus.clean.interfaces.api.dto.LectureScheduleResponseDTO;
 import com.hhplus.clean.interfaces.api.user.UserRequestDTO;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -10,7 +11,6 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import java.time.LocalDate;
-import java.util.Collection;
 import java.util.List;
 import java.util.stream.Collectors;
 
@@ -26,15 +26,11 @@ public class LectureController {
     }
 
     @GetMapping
-    public List<LectureResponseDTO> getLecturesByDate(@RequestParam("date") LocalDate date) {
-        LectureRequestDTO requestDTO = new LectureRequestDTO(date);
-        List<LectureSchedule> schedules = lectureFacade.getAvailableLectureSchedules(requestDTO.getDate());
-        log.info("schedules: {}", schedules);
-        List<LectureResponseDTO> responseDTO = schedules.stream()
-                .map(LectureResponseDTO::from)
+    public List<LectureScheduleResponseDTO> getLecturesByDate(@RequestParam("date") LocalDate date) {
+        return lectureFacade.getAvailableLectureSchedules(date).stream()
+                .map(LectureScheduleResponseDTO::from)
                 .collect(Collectors.toList());
 
-        return responseDTO;
     }
 
     // 특강 신청 API

@@ -16,37 +16,38 @@ public class LectureScheduleService {
         this.lectureScheduleRepository = lectureScheduleRepository;
     }
 
-    public LectureSchedule getLectureScheduleById(Long lectureScheduleId) {
+    public LectureScheduleInfo getLectureScheduleById(Long lectureScheduleId) {
         LectureScheduleEntity lectureScheduleEntity = lectureScheduleRepository.findById(lectureScheduleId)
                 .orElseThrow(() -> new RuntimeException("특강 일정을 찾을 수 없습니다."));
 
-        return LectureSchedule.from(lectureScheduleEntity);
+        return LectureScheduleInfo.from(lectureScheduleEntity);
     }
 
 
-    public List<LectureSchedule> getAvailableLectureSchedules(LocalDate date) {
+    public List<LectureScheduleInfo> getAvailableLectureSchedules(LocalDate date) {
         List<LectureScheduleEntity> schedules = lectureScheduleRepository.findByRegDate(date);
 
         return schedules.stream()
                 .filter(schedule -> schedule.getLectureEnrolls().size() < schedule.getCapacity())
-                .map(LectureSchedule::from)
+                .map(LectureScheduleInfo::from)
                 .collect(Collectors.toList());
     }
 
     // 정원 초과 여부 확인
-    public void checkCapacity(LectureSchedule lectureSchedule) {
-        if (lectureSchedule.getCurrentCount() >= lectureSchedule.getCapacity()) {
+    public void checkCapacity(LectureScheduleCommand lectureSchedule) {
+        if (lectureSchedule.currentCount() >= lectureSchedule.capacity()) {
             throw new RuntimeException("특강 정원이 가득 찼습니다.");
         }
     }
 
-    public LectureSchedule incrementCurrentCount(LectureSchedule lectureSchedule) {
-        int currentCount = lectureSchedule.getCurrentCount();
-        lectureSchedule.setCurrentCount(++currentCount);
-        return lectureSchedule;
+    public LectureScheduleInfo incrementCurrentCount(LectureScheduleCommand lectureSchedule) {
+        LectureScheduleEntity schedule = lectureScheduleRepository.findById(lectureSchedule.id())
+                .orElseThrow(() -> new RuntimeException("특강 스케줄을 찾을 수 없습니다."));
+        schedule.setCurrentCount(schedule.getCurrentCount() + 1);
+        return LectureScheduleInfo.from(schedule) ;
     }
 
-    public void saveLectureSchedule(LectureSchedule lectureSchedule) {
-        lectureScheduleRepository.save(lectureSchedule.toEntity());
+    public LectureScheduleInfo saveLectureSchedule(LectureScheduleCommand lectureSchedule) {
+        return LectureScheduleInfo.from(lectureScheduleRepository.save(lectureSchedule.toEntity()));
     }
 }

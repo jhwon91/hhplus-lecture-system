@@ -1,7 +1,8 @@
 package com.hhplus.clean.application;
 
 import com.hhplus.clean.domain.lectureEnroll.LectureEnrollService;
-import com.hhplus.clean.domain.lectureSchedule.LectureSchedule;
+import com.hhplus.clean.domain.lectureSchedule.LectureScheduleCommand;
+import com.hhplus.clean.domain.lectureSchedule.LectureScheduleInfo;
 import com.hhplus.clean.domain.lectureSchedule.LectureScheduleService;
 import com.hhplus.clean.domain.user.UserCommand;
 import com.hhplus.clean.domain.user.UserService;
@@ -25,7 +26,7 @@ public class LectureFacade {
     }
 
     // 날짜별로 가능한 특강 스케줄을 반환하는 메소드
-    public List<LectureSchedule> getAvailableLectureSchedules(LocalDate date) {
+    public List<LectureScheduleInfo> getAvailableLectureSchedules(LocalDate date) {
         return lectureScheduleService.getAvailableLectureSchedules(date);
     }
 
@@ -36,7 +37,7 @@ public class LectureFacade {
         UserCommand user = UserCommand.from(userService.getUser(userCommand.id()));
 
         // 특강 스케줄 확인
-        LectureSchedule lectureSchedule = lectureScheduleService.getLectureScheduleById(lectureId);
+        LectureScheduleCommand lectureSchedule = LectureScheduleCommand.from(lectureScheduleService.getLectureScheduleById(lectureId)) ;
 
         lectureEnrollService.checkEnroll(user, lectureSchedule);
         lectureScheduleService.checkCapacity(lectureSchedule);
@@ -45,6 +46,5 @@ public class LectureFacade {
         lectureEnrollService.saveEnroll(user, lectureSchedule);
         lectureScheduleService.incrementCurrentCount(lectureSchedule);
         lectureScheduleService.saveLectureSchedule(lectureSchedule);
-
     }
 }
