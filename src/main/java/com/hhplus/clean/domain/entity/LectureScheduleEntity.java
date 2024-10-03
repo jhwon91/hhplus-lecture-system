@@ -1,5 +1,6 @@
 package com.hhplus.clean.domain.entity;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 
@@ -19,6 +20,7 @@ public class LectureScheduleEntity {
     @JoinColumn(name = "lecture_id", nullable = false)
     private LectureEntity lectureEntity;
 
+    @JsonFormat(pattern = "yyyy-MM-dd")
     @Column(name = "reg_date", nullable = false)
     private LocalDate regDate;
 

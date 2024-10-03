@@ -1,5 +1,6 @@
 package com.hhplus.clean.domain.dto;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
 import com.hhplus.clean.domain.entity.LectureEnrollEntity;
 import com.hhplus.clean.domain.entity.LectureScheduleEntity;
 import com.hhplus.clean.domain.entity.UserEntity;
@@ -11,6 +12,7 @@ public record LectureEnrollInfo(
         Long id,
         UserEntity user,
         LectureScheduleEntity lectureSchedule,
+        @JsonFormat(pattern = "yyyy-MM-dd'T'HH:mm:ss.SSSSSS", shape = JsonFormat.Shape.STRING)
         LocalDateTime enrollTime
 ) {
     // Entity -> Info
