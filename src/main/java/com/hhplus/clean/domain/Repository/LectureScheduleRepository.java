@@ -11,4 +11,6 @@ public interface LectureScheduleRepository {
     Optional<LectureScheduleEntity> findById(long id);
     List<LectureScheduleEntity> findAll();
     List<LectureScheduleEntity> findByRegDate(LocalDate regDate);
+    LectureScheduleEntity findByIdForUpdate(long id);
+    Optional<LectureScheduleEntity> findByIdWithPessimisticLock(Long id);
 }

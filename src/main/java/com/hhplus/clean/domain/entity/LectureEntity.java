@@ -23,10 +23,9 @@ public class LectureEntity {
 
     public LectureEntity() {}
 
-    public LectureEntity(Long id, String lectureName, List<LectureScheduleEntity> lectureSchedules) {
+    public LectureEntity(Long id, String lectureName) {
         this.id = id;
         this.lectureName = lectureName;
-        this.lectureSchedules = lectureSchedules;
     }
 
     public Long getId() {

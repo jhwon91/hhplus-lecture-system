@@ -8,6 +8,7 @@ import com.hhplus.clean.domain.service.UserService;
 import jakarta.transaction.Transactional;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.time.LocalDate;
@@ -20,6 +21,7 @@ public class LectureFacade {
     private final LectureScheduleService lectureScheduleService;
     private final LectureEnrollService lectureEnrollService;
 
+    @Autowired
     public LectureFacade(UserService userService, LectureScheduleService lectureScheduleService, LectureEnrollService lectureEnrollService) {
         this.userService = userService;
         this.lectureScheduleService = lectureScheduleService;
@@ -45,9 +47,10 @@ public class LectureFacade {
 
         // 특강 스케줄 확인
         LectureScheduleCommand lectureSchedule = LectureScheduleCommand.from(lectureScheduleService.getLectureScheduleById(lectureId)) ;
+        LectureScheduleCommand lectureByIdForUpdate = LectureScheduleCommand.from(lectureScheduleService.findByIdForUpdate(lectureSchedule)) ;
 
         lectureEnrollService.checkEnroll(user, lectureSchedule);
-        lectureScheduleService.checkCapacity(lectureSchedule);
+        lectureScheduleService.checkCapacity(lectureByIdForUpdate);
 
         // 특강 신청 처리
         LectureEnrollCommand lectureEnroll = LectureEnrollCommand.from(lectureEnrollService.saveEnroll(user, lectureSchedule));

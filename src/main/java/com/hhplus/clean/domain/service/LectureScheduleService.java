@@ -5,6 +5,7 @@ import com.hhplus.clean.domain.entity.LectureScheduleEntity;
 import com.hhplus.clean.domain.dto.LectureScheduleCommand;
 import com.hhplus.clean.domain.dto.LectureScheduleInfo;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Isolation;
 import org.springframework.transaction.annotation.Transactional;
 
 import java.time.LocalDate;
@@ -42,15 +43,29 @@ public class LectureScheduleService {
         }
     }
 
+    @Transactional
     public LectureScheduleInfo incrementCurrentCount(LectureScheduleCommand lectureSchedule) {
-        LectureScheduleEntity schedule = lectureScheduleRepository.findById(lectureSchedule.id())
-                .orElseThrow(() -> new RuntimeException("특강 스케줄을 찾을 수 없습니다."));
-        schedule.setCurrentCount(schedule.getCurrentCount() + 1);
-        return LectureScheduleInfo.from(schedule) ;
+        LectureScheduleEntity schedule = lectureScheduleRepository.findByIdForUpdate(lectureSchedule.id());
+        LectureScheduleEntity scheduleIncrement = new LectureScheduleEntity(
+                schedule.getId(),
+                schedule.getLectureEntity(),
+                schedule.getRegDate(),
+                schedule.getCapacity(),
+                schedule.getCurrentCount() + 1
+        );
+
+        return LectureScheduleInfo.from(scheduleIncrement) ;
     }
 
     @Transactional
     public LectureScheduleInfo saveLectureSchedule(LectureScheduleCommand lectureSchedule) {
         return LectureScheduleInfo.from(lectureScheduleRepository.save(lectureSchedule.toEntity()));
+    }
+
+    @Transactional
+    public LectureScheduleInfo findByIdForUpdate(LectureScheduleCommand lectureSchedule) {
+        LectureScheduleEntity lectureScheduleEntity = lectureScheduleRepository.findByIdForUpdate(lectureSchedule.id());;
+
+        return LectureScheduleInfo.from(lectureScheduleEntity);
     }
 }
