@@ -27,7 +27,7 @@ public class LectureScheduleEntity {
     @Column(name = "capacity", nullable = false)
     private int capacity;
 
-    @Column(name = "current_count")
+    @Column(name = "current_count", nullable = false)
     private int currentCount;
 
     @JsonIgnore

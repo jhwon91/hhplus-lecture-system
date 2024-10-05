@@ -10,29 +10,39 @@ import java.util.Optional;
 
 @Repository
 public class LectureScheduleRepositoryImpl implements LectureScheduleRepository {
-    private final JpaLectureSchduleRepository jpaLectureSchduleRepository;
+    private final JpaLectureScheduleRepository jpaLectureScheduleRepository;
 
-    public LectureScheduleRepositoryImpl(JpaLectureSchduleRepository jpaLectureSchduleRepository) {
-        this.jpaLectureSchduleRepository = jpaLectureSchduleRepository;
+    public LectureScheduleRepositoryImpl(JpaLectureScheduleRepository jpaLectureSchduleRepository) {
+        this.jpaLectureScheduleRepository = jpaLectureSchduleRepository;
     }
 
     @Override
     public LectureScheduleEntity save(LectureScheduleEntity lectureScheduleEntity) {
-        return jpaLectureSchduleRepository.save(lectureScheduleEntity);
+        return jpaLectureScheduleRepository.save(lectureScheduleEntity);
     }
 
     @Override
     public Optional<LectureScheduleEntity> findById(long id) {
-        return jpaLectureSchduleRepository.findById(id);
+        return jpaLectureScheduleRepository.findById(id);
     }
 
     @Override
     public List<LectureScheduleEntity> findAll() {
-        return jpaLectureSchduleRepository.findAll();
+        return jpaLectureScheduleRepository.findAll();
     }
 
     @Override
     public List<LectureScheduleEntity> findByRegDate(LocalDate regDate) {
-        return jpaLectureSchduleRepository.findByRegDate(regDate);
+        return jpaLectureScheduleRepository.findByRegDate(regDate);
+    }
+
+    @Override
+    public LectureScheduleEntity findByIdForUpdate(long id) {
+        return jpaLectureScheduleRepository.findByIdForUpdate(id);
+    }
+
+    @Override
+    public Optional<LectureScheduleEntity> findByIdWithPessimisticLock(Long id) {
+        return jpaLectureScheduleRepository.findByIdWithPessimisticLock(id);
     }
 }
